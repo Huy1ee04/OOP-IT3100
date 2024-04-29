@@ -1,0 +1,39 @@
+public class TG1{
+  private String name;
+  public TG1(String name){
+  }
+}
+
+public class HV1 extends TG1{
+   public HV1(){}
+   public void test(){
+   }
+}
+Class HV1 bị lỗi do nó kế thừa từ class TG1 nhưng lại gọi constructor không tham số trong khi lớp cha chỉ có constructor với tham số String.
+Sửa: +C1: Thêm constructor không tham số trong class TG1:
+        public TG1(){
+
+        }
+     +C2: Trong class HV1 sửa thành constructor có tham số kiểu String:
+        public HV1(String name){
+           super(name);
+        }
+
+public class TG2{
+  private String name;
+  public TG2(String name){
+  }
+}
+public class HV2 extends TG2{
+   public void test(){
+   }
+}
+ Class HV2 bị lỗi do TG2 chỉ có constructer tham số String nhưng trong class HV2 không được xây dựng constructor tham số String.
+ Sửa: +C1: Tạo constructor tham số String trong class HV2:
+         public HV2(String name){
+            super(name);
+         }
+      +C2: Xoá khai báo tham số String:
+         public TG2(){
+
+         }
